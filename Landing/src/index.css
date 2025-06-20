@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "tailwindcss";
+.my-button-container .login-button {
+  color: red;
+  background-color: rgb(250, 250, 255);
+  border: 3px solid #6b7280;
+}
+
+.my-button-container .internal-button {
+  background-color: red;
+  color: rgb(250, 250, 255);
+  border: 3px solid #6b7280;
+}
+
+body{
+    margin:0px;
+    padding: 0px;
+    background-color: #140C1F;
+    font-family: 'Oxanium','Poppins',sans-serif, cursive;
+    background-image: url("../src/assets/images/coverImage.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+     background-position: center; 
+    /* scroll-behavior: smooth; */
+}
+*{
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+}
+/* scroll bar desigin */
+::-webkit-scrollbar{
+    width: 8px;
+    background-color: #140C1F;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #C778DD;
+    border-radius: 10px;
+}

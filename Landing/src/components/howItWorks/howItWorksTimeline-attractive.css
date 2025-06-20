@@ -1,0 +1,217 @@
+.timeline-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+.timeline {
+  position: relative;
+  padding: 80px 0 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 120px;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(
+    to right,
+    rgba(173, 26, 175, 0.2),
+    rgba(64, 223, 159, 0.3),
+    rgba(173, 26, 175, 0.2)
+  );
+  z-index: 0;
+}
+
+.timeline-items-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.timeline-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex: 1;
+  max-width: 180px;
+  margin: 0 10px;
+}
+
+.timeline-content {
+  width: 100%;
+  padding: 20px 15px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(173, 26, 175, 0.2);
+  transition: all 0.5s ease;
+  text-align: center;
+  margin-top: 60px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(173, 26, 175, 0.2),
+    0 0 15px rgba(64, 223, 159, 0.3);
+  border: 1px solid rgba(64, 223, 159, 0.4);
+}
+
+.timeline-icon {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  background: #17002e;
+  border: 3px solid #ad1aaf;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  transform: translateY(-50%);
+  z-index: 10;
+  box-shadow: 0 0 20px rgba(173, 26, 175, 0.4);
+}
+
+.timeline-item:hover .timeline-icon {
+  border: 3px solid #ffffff;
+  box-shadow: 0 0 25px rgba(64, 223, 159, 0.6);
+}
+
+.timeline-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #fff;
+  background: linear-gradient(90deg, #ffffff, #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.timeline-description {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #96839b;
+}
+
+.connector {
+  position: absolute;
+  width: 2px;
+  height: 50px;
+  background: linear-gradient(to bottom, #ad1aaf, #ffffff);
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.step-number {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  background: #17002e;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ffffff;
+}
+
+/* Pulse animation for timeline icons */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(173, 26, 175, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(173, 26, 175, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(173, 26, 175, 0);
+  }
+}
+
+.timeline-icon {
+  animation: pulse 2s infinite;
+}
+
+/* Arrows between steps */
+.step-arrow {
+  position: absolute;
+  top: 120px;
+  right: -15px;
+  width: 30px;
+  height: 30px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #17002e;
+  font-weight: bold;
+  font-size: 18px;
+  z-index: 10;
+  box-shadow: 0 0 15px rgba(64, 223, 159, 0.6);
+}
+
+.timeline-item:last-child .step-arrow {
+  display: none;
+}
+
+/* Responsive styles */
+@media (max-width: 991px) {
+  .timeline-items-container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .timeline-item {
+    width: 45%;
+    margin-bottom: 60px;
+    max-width: none;
+  }
+
+  .timeline::before {
+    display: none;
+  }
+
+  .step-arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .timeline-items-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .timeline-item {
+    width: 80%;
+    margin-bottom: 80px;
+  }
+
+  .timeline-content {
+    margin-top: 50px;
+  }
+}
