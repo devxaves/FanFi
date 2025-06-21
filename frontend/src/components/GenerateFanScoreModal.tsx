@@ -6,7 +6,27 @@ const GenerateFanScoreModal = ({ user, onClose }: any) => {
 
   const generateFanScore = async () => {
     setLoading(true);
+    // First, try to fetch from DB
+    try {
+      const dbRes = await fetch(
+        `http://localhost:5000/api/getScore?userId=${user.userId}`
+      );
+      const dbData = await dbRes.json();
+      if (
+        dbRes.ok &&
+        dbData.fanScore !== null &&
+        dbData.fanScore !== undefined
+      ) {
+        setFanScore(dbData.fanScore);
+        setLoading(false);
+        return;
+      }
+    } catch (err) {
+      // If DB fetch fails, fallback to Gemini
+      console.error("DB fetch error, will try Gemini", err);
+    }
 
+    // If not in DB, call Gemini
     const prompt = `
 You're an AI assistant helping an event platform rate fans based on their interests and booking history. 
 Given the user's region, top interests, preferred languages, and recent bookings, assign a Fan Score (out of 100). 
@@ -55,12 +75,11 @@ User Profile:
       await fetch("http://localhost:5000/api/saveScore", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ userId, fanScore }),
+        body: JSON.stringify({ userId, fanScore, name: user.name }),
       });
-      alert("Fan Score saved successfully!");
+      // No alert here, UX improvement
     } catch (error) {
       console.error("MongoDB save failed:", error);
-      alert("Failed to save Fan Score.");
     }
   };
 

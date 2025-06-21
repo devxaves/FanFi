@@ -16,9 +16,9 @@ const uri = process.env.MONGO_URI;
 const client = new MongoClient(uri);
 const dbName = "FanFi";
 
-// API endpoint
+// API endpoint to save score
 app.post("/api/saveScore", async (req, res) => {
-  const { userId, fanScore } = req.body;
+  const { userId, fanScore, name } = req.body;
 
   try {
     await client.connect();
@@ -27,7 +27,7 @@ app.post("/api/saveScore", async (req, res) => {
 
     await collection.updateOne(
       { userId },
-      { $set: { fanScore, updatedAt: new Date() } },
+      { $set: { fanScore, name, updatedAt: new Date() } },
       { upsert: true }
     );
 
@@ -35,6 +35,54 @@ app.post("/api/saveScore", async (req, res) => {
   } catch (error) {
     console.error("MongoDB error:", error);
     res.status(500).json({ error: "Failed to save Fan Score." });
+  } finally {
+    await client.close();
+  }
+});
+
+// API endpoint to get score
+app.get("/api/getScore", async (req, res) => {
+  const { userId } = req.query;
+  if (!userId) return res.status(400).json({ error: "userId required" });
+  try {
+    await client.connect();
+    const db = client.db(dbName);
+    const collection = db.collection("fanscores");
+    const userScore = await collection.findOne({ userId });
+    if (userScore && userScore.fanScore !== undefined) {
+      res.status(200).json({ fanScore: userScore.fanScore });
+    } else {
+      res.status(404).json({ fanScore: null });
+    }
+  } catch (error) {
+    console.error("MongoDB error:", error);
+    res.status(500).json({ error: "Failed to fetch Fan Score." });
+  } finally {
+    await client.close();
+  }
+});
+
+// API endpoint to get leaderboard
+app.get("/api/leaderboard", async (req, res) => {
+  try {
+    await client.connect();
+    const db = client.db(dbName);
+    const collection = db.collection("fanscores");
+    // Get all users with a fanScore, sorted descending
+    let leaderboard = await collection
+      .find({ fanScore: { $ne: null } }, { projection: { _id: 0, userId: 1, name: 1, fanScore: 1 } })
+      .sort({ fanScore: -1 })
+      .limit(20)
+      .toArray();
+    // Ensure name is never null or empty
+    leaderboard = leaderboard.map(user => ({
+      ...user,
+      name: user.name && user.name.trim() ? user.name : user.userId
+    }));
+    res.status(200).json({ leaderboard });
+  } catch (error) {
+    console.error("MongoDB error:", error);
+    res.status(500).json({ error: "Failed to fetch leaderboard." });
   } finally {
     await client.close();
   }
