@@ -53,6 +53,7 @@ const NFTDetail: React.FC = () => {
         width: '100%',
         margin: '20px auto',
         borderRadius: '12px',
+        backgroundColor: 'rgba(76, 0, 81, 0.26)' ,
         boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
         overflow: 'hidden',
         padding: '24px !important',

@@ -184,7 +184,7 @@ function App() {
           
           /* Modal styling */
           .ant-modal .ant-modal-content {
-            background: #240a4a !important;
+            background:rgba(36, 10, 74, 0) !important;
             border: 1px solid rgba(199, 120, 221, 0.2) !important;
           }
           
@@ -359,7 +359,7 @@ function App() {
           
           /* Menu styling */
           .ant-menu {
-            background: #240a4a !important;
+            background:rgba(36, 10, 74, 0) !important;
             color: white !important;
           }
           

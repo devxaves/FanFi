@@ -5,7 +5,7 @@ body {
   width: 100%;
   height: max-content;
   margin: 0;
-  padding: 64px;
+  padding: 64px 32px;
   background-color: #140C1F;
   background-image: url('../public/coverImage.png');
   background-position: center;
