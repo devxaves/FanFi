@@ -8,7 +8,7 @@ import { CCard, CTypography, OutlinedBtn } from "../../utility";
 const auctionNFTsData = [
   {
     id: 1,
-    img: require("../../assets/images/trending4.png"),
+    img: require("../../assets/images/sports1.png"),
     react: "341",
     avatar: require("../../assets/images/UserProfile.png"),
     name: "IPL 2023: MI vs CSK",
@@ -18,7 +18,7 @@ const auctionNFTsData = [
   },
   {
     id: 2,
-    img: require("../../assets/images/trending3.png"),
+    img: require("../../assets/images/sports1.png"),
     react: "341",
     avatar: require("../../assets/images/UserProfile.png"),
     name: "World Cup: India vs Aus",
@@ -28,7 +28,7 @@ const auctionNFTsData = [
   },
   {
     id: 3,
-    img: require("../../assets/images/trending2.png"),
+    img: require("../../assets/images/sports1.png"),
     react: "341",
     avatar: require("../../assets/images/UserProfile.png"),
     name: "PKL: Patna vs Delhi",
@@ -38,7 +38,7 @@ const auctionNFTsData = [
   },
   {
     id: 4,
-    img: require("../../assets/images/trending1.png"),
+    img: require("../../assets/images/sports1.png"),
     react: "341",
     avatar: require("../../assets/images/UserProfile.png"),
     name: "ISL: Mohun Bagan vs KBFC",
@@ -48,7 +48,7 @@ const auctionNFTsData = [
   },
   {
     id: 5,
-    img: require("../../assets/images/trending4.png"),
+    img: require("../../assets/images/sports1.png"),
     react: "341",
     avatar: require("../../assets/images/UserProfile.png"),
     name: "Ind vs Eng: 2nd Test",
@@ -58,7 +58,7 @@ const auctionNFTsData = [
   },
   {
     id: 6,
-    img: require("../../assets/images/trending3.png"),
+    img: require("../../assets/images/sports1.png"),
     react: "341",
     avatar: require("../../assets/images/UserProfile.png"),
     name: "Pro Kabaddi Finals",
@@ -68,7 +68,7 @@ const auctionNFTsData = [
   },
   {
     id: 7,
-    img: require("../../assets/images/trending2.png"),
+    img: require("../../assets/images/sports1.png"),
     react: "341",
     avatar: require("../../assets/images/UserProfile.png"),
     name: "Badminton: Sindhu vs Marin",
@@ -78,7 +78,7 @@ const auctionNFTsData = [
   },
   {
     id: 8,
-    img: require("../../assets/images/trending1.png"),
+    img: require("../../assets/images/sports1.png"),
     react: "341",
     avatar: require("../../assets/images/UserProfile.png"),
     name: "Hockey India League",
@@ -87,6 +87,7 @@ const auctionNFTsData = [
     busd: "654,874.86",
   },
 ];
+
 
 export default function AuctionNFTs() {
   const TopSection = (props) => {

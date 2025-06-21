@@ -22,12 +22,12 @@ const dataSources = [
   {
     id: 4,
     src: require("../../assets/images/walletSupport4.png"),
-    name: "Amazon eBooks",
+    name: "Paytm Events",
   },
   {
     id: 5,
     src: require("../../assets/images/walletSupport5.png"),
-    name: "Other Apps",
+    name: "and more...",
   },
 ];
 

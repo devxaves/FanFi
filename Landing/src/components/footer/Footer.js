@@ -2,7 +2,7 @@ import { Box, Grid } from "@mui/material";
 import { Stack } from "@mui/system";
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/images/logo.png"; // TODO: Replace with FanFi logo
+import logo from "../../assets/images/logo.png"; // TODO: Replace with FANFi logo
 import FbIcon from "../../assets/svg/FbIcon";
 import GoogleIcon from "../../assets/svg/GoogleIcon";
 import TwitterIcon from "../../assets/svg/TwitterIcon";
@@ -12,7 +12,7 @@ import { CTypography } from "../../utility";
 const footerData = {
   logo: logo,
   description:
-    "FanFi is the next-gen ticketing platform powered by AI and blockchain, ensuring fair, fan-first access to the world’s best events.",
+    "FANFi is the next-gen ticketing platform powered by AI and blockchain, ensuring fair, fan-first access to the world’s best events.",
   socialLinks: [
     {
       id: 1,
@@ -35,7 +35,7 @@ const footerData = {
       icon: <GoogleIcon />,
     },
   ],
-  copyRight: "FanFi. All rights reserved.",
+  copyRight: "FANFi. All rights reserved.",
   aboutLinks: [
     {
       id: 1,
@@ -112,7 +112,7 @@ export default function Footer() {
           }}
         />
         <CTypography fontSize="50px" fontWeight="700" textTransform="uppercase">
-          FanFi
+          FANFi
         </CTypography>
       </Stack>
     );

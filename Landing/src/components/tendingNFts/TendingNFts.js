@@ -6,28 +6,28 @@ import { CCard, CTypography, OutlinedBtn } from "../../utility";
 const trendingEvents = [
   {
     id: 1,
-    img: require("../../assets/images/trending1.png"),
+    img: require("../../assets/images/poster1.png"),
     name: "Bollywood Music Fest",
     category: "Entertainment",
     fanScore: 80,
   },
   {
     id: 2,
-    img: require("../../assets/images/trending2.png"),
+    img: require("../../assets/images/poster1.png"),
     name: "TEDx Youth",
     category: "Conferences",
     fanScore: 70,
   },
   {
     id: 3,
-    img: require("../../assets/images/trending3.png"),
+    img: require("../../assets/images/poster1.png"),
     name: "Standup Comedy Night",
     category: "Entertainment",
     fanScore: 65,
   },
   {
     id: 4,
-    img: require("../../assets/images/trending4.png"),
+    img: require("../../assets/images/poster1.png"),
     name: "Startup India Summit",
     category: "Conferences",
     fanScore: 90,
@@ -92,7 +92,7 @@ export default function TendingNFts() {
               component="img"
               src={item.img}
               alt={item.name}
-              sx={{ width: 310, height: 200, borderRadius: "15px" }}
+              sx={{ width: 310, borderRadius: "15px" }}
             />
           </Box>
           <Stack px={2}>

@@ -3,7 +3,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { Avatar, Box, Drawer, IconButton, Stack } from "@mui/material";
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import logo from "../../assets/images/logo.png"; // TODO: Replace with FanFi logo
+import logo from "../../assets/images/logo.png"; // TODO: Replace with FANFi logo
 import UserProfile from "../../assets/images/UserProfile.png";
 import CButton from "../../utility/CButton";
 import CTypography from "../../utility/CTypography";
@@ -19,7 +19,7 @@ const navbarData = {
     { id: 6, name: "About", path: "/about" },
   ],
   logo: logo,
-  logoTitle: "FanFi",
+  logoTitle: "FANFi",
 };
 
 export default function Navbar() {
@@ -67,9 +67,9 @@ export default function Navbar() {
           <CTypography
             fontSize="50px"
             fontWeight="700"
-            textTransform="uppercase"
+            // textTransform="uppercase"
           >
-            FanFi
+            FANFi
           </CTypography>
         </Stack>
 
@@ -92,17 +92,17 @@ export default function Navbar() {
                 style={({ isActive }) =>
                   isActive
                     ? {
-                        color: "#fff",
-                        // color: "#fff",
-                        fontSize: "16px",
-                        fontWeight: 400,
-                        borderBottom: "2px solid #AD1AAF",
-                      }
+                      color: "#fff",
+                      // color: "#fff",
+                      fontSize: "16px",
+                      fontWeight: 400,
+                      borderBottom: "2px solid #AD1AAF",
+                    }
                     : {
-                        color: "#fff",
-                        fontSize: "16px",
-                        fontWeight: 400,
-                      }
+                      color: "#fff",
+                      fontSize: "16px",
+                      fontWeight: 400,
+                    }
                 }
               >
                 <Box
@@ -191,7 +191,7 @@ export default function Navbar() {
               fontWeight="700"
               textTransform="uppercase"
             >
-              FanFi
+              FANFi
             </CTypography>
           </Stack>
           <IconButton onClick={() => setOpen(false)} sx={{ color: "#fff" }}>
@@ -208,21 +208,21 @@ export default function Navbar() {
                 style={({ isActive }) =>
                   isActive
                     ? {
-                        color: "#fff",
-                        // color: "#fff",
-                        fontSize: "16px",
-                        fontWeight: 400,
-                        padding: "10px 0",
-                        borderRadius: "4px",
-                        background:
-                          "linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%)",
-                        backdropFilter: "blur(20.8333px)",
-                      }
+                      color: "#fff",
+                      // color: "#fff",
+                      fontSize: "16px",
+                      fontWeight: 400,
+                      padding: "10px 0",
+                      borderRadius: "4px",
+                      background:
+                        "linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%)",
+                      backdropFilter: "blur(20.8333px)",
+                    }
                     : {
-                        color: "#fff",
-                        fontSize: "16px",
-                        fontWeight: 400,
-                      }
+                      color: "#fff",
+                      fontSize: "16px",
+                      fontWeight: 400,
+                    }
                 }
                 onClick={() => setOpen(false)}
               >

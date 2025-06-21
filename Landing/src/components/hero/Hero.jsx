@@ -62,7 +62,7 @@ export default function Hero() {
                 color="#fff"
                 textTransform="capitalize"
               >
-                bleeding ghost
+                Honey Singh Concert
               </CTypography>
               <CTypography
                 fontSize="17px"
@@ -71,7 +71,7 @@ export default function Hero() {
                 color="#fff"
                 textTransform="capitalize"
               >
-                $ 152,793.17
+                5k+ tickets sold
               </CTypography>
             </Stack>
           </Stack>
@@ -133,7 +133,7 @@ export default function Hero() {
                 color="#fff"
                 textTransform="capitalize"
               >
-                Meet-Up with Virat
+                Khelo India Finals
               </CTypography>
               <CTypography
                 fontSize="17px"
@@ -142,7 +142,7 @@ export default function Hero() {
                 color="#fff"
                 textTransform="capitalize"
               >
-                $ 543,576.13
+                10k+ tickets sold
               </CTypography>
             </Stack>
           </Stack>
@@ -206,7 +206,7 @@ export default function Hero() {
                 color="#fff"
                 textTransform="capitalize"
               >
-                Statue of vughae
+                RCB Fan Fest
               </CTypography>
               <CTypography
                 fontSize="17px"
@@ -215,7 +215,7 @@ export default function Hero() {
                 color="#fff"
                 textTransform="capitalize"
               >
-                $ 452,968.48
+                20k+ tickets sold
               </CTypography>
             </Stack>
           </Stack>
@@ -250,17 +250,17 @@ export default function Hero() {
               fontSize="60px"
               fontWeight={600}
               lineHeight="80px"
-              textTransform="uppercase"
+              // textTransform="uppercase"
             >
-              SMART, FAN-FIRST TICKETING ON FanFi
+              SMART, FAN-FIRST TICKETING ON FANFi
             </CTypography>
             <CTypography
               fontSize={20}
               fontWeight={100}
               fontFamily="Poppins"
-              textTransform="capitalize"
+              // textTransform="capitalize"
             >
-              FanFi is the next-gen, AI-powered ticketing platform on Aptos
+              FANFi is the next-gen, AI-powered ticketing platform on Aptos
               blockchain for fair, secure, and immersive for every fan.
             </CTypography>
             <Stack direction={"row"} spacing={2} py={4}>

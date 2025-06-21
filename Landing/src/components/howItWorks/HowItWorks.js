@@ -183,7 +183,7 @@ export default function HowItWorks() {
               WebkitTextFillColor: "transparent",
             }}
           >
-            How FanFi Works
+            How FANFi Works
           </CTypography>
         </motion.div>
 

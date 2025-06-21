@@ -3,12 +3,13 @@ import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import { Box, Stack } from "@mui/material";
 import React from "react";
 import Slider from "react-slick";
-import collection2 from "../../assets/images/collection2.png";
-import collection3 from "../../assets/images/collection3.png";
-import collection4 from "../../assets/images/collection4.png";
-import collection5 from "../../assets/images/collection5.png";
-import collection6 from "../../assets/images/collection6.png";
-import collection7 from "../../assets/images/collection7.png";
+import collection2 from "../../assets/images/poster.png";
+import collection3 from "../../assets/images/poster.png";
+import collection4 from "../../assets/images/poster.png";
+import collection5 from "../../assets/images/poster.png";
+import collection6 from "../../assets/images/poster.png";
+import collection7 from "../../assets/images/poster.png";
+
 import { CTypography } from "../../utility";
 import "./collection.css";
 const events = [
