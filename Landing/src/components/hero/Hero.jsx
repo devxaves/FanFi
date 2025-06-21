@@ -304,7 +304,7 @@ export default function Hero() {
     rel="noopener noreferrer" 
     style={{ textDecoration: "none" }}
   >
-    <CButton size="small" btnTitle={"explore more"} />
+    <CButton size="small" btnTitle={"Click to Enter"} />
   </a>
 
   <a 
