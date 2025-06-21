@@ -12,11 +12,11 @@ import { CivicAuthProvider, UserButton } from "@civic/auth/react";
 const navbarData = {
   routes: [
     { id: 1, name: "Home", path: "/" },
-    { id: 2, name: "Featured Events", path: "/featured-events" },
-    { id: 3, name: "Live Auctions", path: "/live-auctions" },
-    { id: 4, name: "Sports", path: "/sports" },
-    { id: 5, name: "How It Works", path: "/how-it-works" },
-    { id: 6, name: "About", path: "/about" },
+    { id: 2, name: "Featured Events", path: "partners" },
+    { id: 3, name: "Live Auctions", path: "trending-events" },
+    { id: 4, name: "Sports", path: "live-sports" },
+    { id: 5, name: "How FanFi Works", path: "how-it-works" },
+    { id: 6, name: "Community Stars", path: "community-stars" },
   ],
   logo: logo,
   logoTitle: "FANFi",

@@ -38,9 +38,9 @@ a{
 /* scroll bar desigin */
 ::-webkit-scrollbar{
     width: 8px;
-    background-color: #140C1F;
+    background-color: #240a4a;
 }
 ::-webkit-scrollbar-thumb{
     background-color: #C778DD;
-    border-radius: 10px;
+    border-radius: 2px;
 }
