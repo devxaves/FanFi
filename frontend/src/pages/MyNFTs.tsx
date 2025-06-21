@@ -1,14 +1,38 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { Typography, Card, Row, Col, Pagination, message, Button, Tag, Spin } from "antd";
+import {
+  Typography,
+  Card,
+  Row,
+  Col,
+  Pagination,
+  message,
+  Button,
+  Tag,
+  Spin,
+} from "antd";
 import { useWallet } from "@aptos-labs/wallet-adapter-react";
 import { MARKET_PLACE_ADDRESS, MARKET_PLACE_NAME } from "../Constants";
 import { useNavigate } from "react-router-dom";
 import StartAuctionModal from "../components/StartAuctionModal";
 import ListForSaleModal from "../components/ListForSaleModal";
 import { fetchNFTDataUtil } from "../utils/fetchNFTData";
-import { rarityColors, rarityLabels } from "../utils/rarityUtils";
 import { NFT } from "../types/nftType";
 import { client } from "../utils/aptoClientUtil";
+import { QRCodeCanvas } from "qrcode.react";
+
+const categoryLabels: Record<number, string> = {
+  1: "Concert",
+  2: "Sports",
+  3: "Celebration",
+  4: "Others",
+};
+
+const categoryColors: Record<number, string> = {
+  1: "blue",
+  2: "green",
+  3: "purple",
+  4: "volcano",
+};
 
 const { Title, Text } = Typography;
 const { Meta } = Card;
@@ -19,7 +43,7 @@ const truncateAddress = (address: string, start = 6, end = 4) => {
 
 const MyNFTs: React.FC = () => {
   const pageSize = 8;
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [nfts, setNfts] = useState<NFT[]>([]);
   const [totalNFTs, setTotalNFTs] = useState(0);
@@ -31,29 +55,27 @@ const MyNFTs: React.FC = () => {
 
   const fetchUserNFTs = useCallback(async () => {
     if (!account) return;
-
     try {
       setLoading(true);
-      const nftIdsResponse = await client.view({
+      const response = await client.view({
         function: `${MARKET_PLACE_ADDRESS}::${MARKET_PLACE_NAME}::get_all_nfts_for_owner`,
         arguments: [MARKET_PLACE_ADDRESS, account.address, "100", "0"],
         type_arguments: [],
       });
 
-      const nftIds = Array.isArray(nftIdsResponse[0]) ? nftIdsResponse[0] : nftIdsResponse;
+      const nftIds = Array.isArray(response[0]) ? response[0] : response;
       setTotalNFTs(nftIds.length);
 
-      if (nftIds.length === 0) {
+      if (!nftIds.length) {
         setNfts([]);
         return;
       }
 
-      const userNFTs = (await Promise.all(
-        nftIds.map(async (id) => {
-          return await fetchNFTDataUtil(id, account.address, client);
-        })
-      )).filter((nft): nft is NFT => nft !== null);
+      const fetched = await Promise.all(
+        nftIds.map((id) => fetchNFTDataUtil(id, account.address, client))
+      );
 
+      const userNFTs = fetched.filter((nft): nft is NFT => nft !== null);
       setNfts(userNFTs);
     } catch (error) {
       console.error("Error fetching NFTs:", error);
@@ -99,48 +121,23 @@ const MyNFTs: React.FC = () => {
 
   return (
     <div style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
-      <Title level={2} style={{ marginBottom: "20px" }}>My Collection</Title>
-      <p>Your personal collection of NFTs.</p>
+      <Title level={2}>My Collection</Title>
+      <p>Your event-based NFT tickets with check-in QR codes.</p>
 
-      <Row
-        gutter={[24, 24]}
-        style={{
-          marginTop: 20,
-          width: "100%",
-          display: "flex",
-          justifyContent: "center",
-          flexWrap: "wrap",
-        }}
-      >
+      <Row gutter={[24, 24]} style={{ marginTop: 20, width: "100%", justifyContent: "center" }}>
         {paginatedNFTs.map((nft) => (
-          <Col
-            key={nft.id}
-            xs={24}
-            sm={12}
-            md={8}
-            lg={8}
-            xl={6}
-            style={{ display: "flex", justifyContent: "center" }}
-          >
+          <Col key={nft.id} xs={24} sm={12} md={8} lg={8} xl={6} style={{ display: "flex", justifyContent: "center" }}>
             <Card
               hoverable
-              style={{
-                width: "100%",
-                maxWidth: "280px",
-                minWidth: "220px",
-                margin: "0 auto",
-              }}
+              style={{ width: "100%", maxWidth: 280, minWidth: 220 }}
               extra={
-                <Tag
-                  color={rarityColors[nft.rarity]}
-                  style={{ fontSize: "14px", fontWeight: "bold", marginBottom: "10px" }}
-                >
-                  {rarityLabels[nft.rarity]}
+                <Tag color={categoryColors[nft.rarity]} style={{ fontSize: 14, fontWeight: "bold" }}>
+                  {categoryLabels[nft.rarity]}
                 </Tag>
               }
               cover={<img alt={nft.name} src={nft.uri} />}
               actions={[
-                <div style={{ display: 'flex', alignItems: "center", justifyContent: "space-evenly" }} key="actions">
+                <div style={{ display: "flex", justifyContent: "space-evenly" }} key="actions">
                   {nft.auction ? (
                     <Button
                       type="primary"
@@ -150,29 +147,13 @@ const MyNFTs: React.FC = () => {
                       {nft.auction?.isExpired ? "Expired Auction" : "Ongoing Auction"}
                     </Button>
                   ) : nft.for_sale ? (
-                    <Button
-                      type="primary"
-                      danger
-                      onClick={() => navigate(`/nft-detail/${nft.id}`)}
-                    >
+                    <Button danger type="primary" onClick={() => navigate(`/nft-detail/${nft.id}`)}>
                       End Sale
                     </Button>
                   ) : (
                     <>
-                      <Button
-                        style={{ width: "40%" }}
-                        type="primary"
-                        onClick={() => handleSellClick(nft)}
-                      >
-                        Sell
-                      </Button>
-                      <Button
-                        type="primary"
-                        style={{ width: "40%" }}
-                        onClick={() => handleAuctionClick(nft)}
-                      >
-                        Auction
-                      </Button>
+                      <Button type="primary" onClick={() => handleSellClick(nft)}>Sell</Button>
+                      <Button type="primary" onClick={() => handleAuctionClick(nft)}>Auction</Button>
                     </>
                   )}
                 </div>
@@ -180,7 +161,7 @@ const MyNFTs: React.FC = () => {
             >
               <div onClick={() => navigate(`/nft-detail/${nft.id}`)}>
                 <Meta
-                  title={<Text style={{ fontWeight: "500" }}>{nft.name}</Text>}
+                  title={<Text strong>{nft.name}</Text>}
                   description={
                     nft.auction ? (
                       <Text type="secondary">Price: Auction</Text>
@@ -192,7 +173,6 @@ const MyNFTs: React.FC = () => {
                 <p>ID: {nft.id}</p>
                 <div
                   style={{
-                    flexGrow: 1,
                     overflow: "hidden",
                     textOverflow: "ellipsis",
                     WebkitLineClamp: 2,
@@ -206,14 +186,12 @@ const MyNFTs: React.FC = () => {
                   Owner: {nft.owner === account?.address && "You | "}
                   {truncateAddress(nft.owner)}
                 </p>
-                <p style={{ margin: "10px 0" }}>
-                  For Sale: {nft.auction ? "Auction" : nft.for_sale ? "Yes" : "No"}
-                </p>
-                {nft.auction && (
-                  <p>
-                    Auction Ending: {new Date(nft.auction.end_time * 1000).toLocaleString()}
-                  </p>
-                )}
+                <p>QR Code:</p>
+                <QRCodeCanvas
+                  value={`https://fan-fi.vercel.app/checkin?id=${nft.id}&owner=${nft.owner}`}
+                  size={128}
+                  includeMargin
+                />
               </div>
             </Card>
           </Col>
@@ -226,7 +204,6 @@ const MyNFTs: React.FC = () => {
           pageSize={pageSize}
           total={totalNFTs}
           onChange={(page) => setCurrentPage(page)}
-          style={{ display: "flex", justifyContent: "center" }}
         />
       </div>
 

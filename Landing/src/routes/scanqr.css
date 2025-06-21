@@ -1,0 +1,17 @@
+.qr-container {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.camera-scan {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.upload-section input {
+  margin-top: 10px;
+}

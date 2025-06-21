@@ -5,6 +5,7 @@ import heroImage1 from "../../assets/images/hero1.png";
 import heroImage2 from "../../assets/images/hero2.png";
 import heroImage3 from "../../assets/images/hero3.png";
 import aptosLogo from "../../assets/images/aptos1.png";
+import { Link } from "react-router-dom"; // ✅ Import Link
 
 import Card from "../../utility/Card";
 import CButton from "../../utility/CButton";
@@ -299,6 +300,10 @@ export default function Hero() {
   <Stack direction={"row"} spacing={2} py={4}>
     <CButton size="small" btnTitle={"explore more"} />
     <OutlinedBtn size="small" btnTitle={"get started"} />
+    {/* ✅ Scan Now Button */}
+              <Link to="/scan" style={{ textDecoration: "none" }}>
+                <OutlinedBtn size="small" btnTitle={"Scan Now"} />
+              </Link>
   </Stack>
 </Stack>
 

@@ -82,14 +82,15 @@ function App() {
             <Form.Item label="URI" name="uri" rules={[{ required: true, message: "Please enter a URI!" }]}>
               <Input />
             </Form.Item>
-            <Form.Item label="Rarity" name="rarity" rules={[{ required: true, message: "Please select a rarity!" }]}>
-              <Select>
-                <Select.Option value={1}>Common</Select.Option>
-                <Select.Option value={2}>Uncommon</Select.Option>
-                <Select.Option value={3}>Rare</Select.Option>
-                <Select.Option value={4}>Epic</Select.Option>
-              </Select>
-            </Form.Item>
+            <Form.Item label="Category" name="rarity" rules={[{ required: true, message: "Please select a category!" }]}>
+  <Select>
+    <Select.Option value={1}>Concert</Select.Option>
+    <Select.Option value={2}>Sports</Select.Option>
+    <Select.Option value={3}>Celebration</Select.Option>
+    <Select.Option value={4}>Others</Select.Option>
+  </Select>
+</Form.Item>
+
             <Form.Item>
               <Button type="primary" htmlType="submit">
                 Mint NFT
