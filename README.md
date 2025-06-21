@@ -1,4 +1,7 @@
-# 🎟️ FanFi
+#  FanFi 🎟️ - SMART, FAN-FIRST TICKETING
+
+![image](https://github.com/user-attachments/assets/5cafff6c-d2cb-4f47-a253-aa9bb45d4153)
+
 
 ![Powered By](https://img.shields.io/badge/Powered%20By-Aptos%20%7C%20Civic%20%7C%20Gemini-blueviolet?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
