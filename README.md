@@ -68,14 +68,17 @@
 # Clone the repo
 git clone https://github.com/yourusername/fanfi.git
 cd fanfi
-
+```
 # Frontend setup
+```bash
 cd frontend
 npm install
 cp .env.example .env
 npm run dev
+```
 
 # Backend setup
+```bash
 cd ../fanfi-backend
 npm install
 cp .env.example .env
@@ -100,9 +103,9 @@ Test features like:
 
 ## 👥 Team DEVX Aves
 
-- 👑 **Anirban Bandyopadhyay** – CEO & Strategy  
-- 💻 **Priyobrata Mondal** – CTO & Full Stack Developer  
-- 📣 **Sujay Dey** – CMO & Community/Partnerships
+- 👑 **Anirban Bandyopadhyay**  
+- 💻 **Priyobrata Mondal**   
+- 📣 **Sujay Dey**
 
 ---
 
