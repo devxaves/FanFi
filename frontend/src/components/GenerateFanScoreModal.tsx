@@ -9,7 +9,7 @@ const GenerateFanScoreModal = ({ user, onClose }: any) => {
     // First, try to fetch from DB
     try {
       const dbRes = await fetch(
-        `http://localhost:5000/api/getScore?userId=${user.userId}`
+        `https://fanfi.onrender.com/api/getScore?userId=${user.userId}`
       );
       const dbData = await dbRes.json();
       if (
