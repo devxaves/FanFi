@@ -86,7 +86,7 @@ function DrawerAppBar(props, { children }) {
                         textTransform="uppercase"
 
                     >
-                        hihami
+                        FanFi
                     </CTypography>
                 </Stack>
                 <IconButton
@@ -217,7 +217,7 @@ function DrawerAppBar(props, { children }) {
                                 textTransform="uppercase"
 
                             >
-                                hihami
+                                FanFi
                             </CTypography>
                         </Stack>
                         {/* navbar section */}
