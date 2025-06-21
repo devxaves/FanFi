@@ -11,7 +11,7 @@ const CheckinPage = () => {
 
     if (id) {
       // Redirect to external app on port 3000
-      const targetUrl = `http://localhost:3000/nft-detail/${id}`;
+      const targetUrl = `https://fanfi-tickets.vercel.app/nft-detail/${id}`;
       window.location.href = targetUrl; // OR use window.open(targetUrl, "_blank") for new tab
     }
   }, [location]);
