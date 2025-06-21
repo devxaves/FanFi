@@ -94,35 +94,35 @@ const NavBar: React.FC<NavBarProps> = ({ onMintNFTClick }) => {
     const menuItems = [
         {
             key: "/",
-            label: <Link to="/" style={{ color: '#000', fontWeight: 500, display: 'flex', alignItems: 'center' }}> <ShopOutlined style={{ marginRight: 6}}/> Marketplace</Link>,
+            label: <Link to="/" style={{ color: 'rgba(255, 255, 255, 0.9)', fontWeight: 500, display: 'flex', alignItems: 'center' }}> <ShopOutlined style={{ marginRight: 6}}/> Marketplace</Link>,
         },
-        {
-            key: "/analytics",
-            label: <Link to="/analytics" style={{ color: '#000', fontWeight: 500, display: 'flex', alignItems: 'center' }}> <BarChartOutlined style={{ marginRight: 6}}/> Analytics</Link>,
-        },
+        // {
+        //     key: "/analytics",
+        //     label: <Link to="/analytics" style={{ color: 'rgba(255, 255, 255, 0.9)', fontWeight: 500, display: 'flex', alignItems: 'center' }}> <BarChartOutlined style={{ marginRight: 6}}/> Analytics</Link>,
+        // },
         {
             key: "/my-nfts",
-            label: <Link to="/my-nfts" style={{ color: '#000', fontWeight: 500, display: 'flex', alignItems: 'center' }}> <AppstoreOutlined style={{ marginRight: 6}}/> My Collection</Link>,
+            label: <Link to="/my-nfts" style={{ color: 'rgba(255, 255, 255, 0.9)', fontWeight: 500, display: 'flex', alignItems: 'center' }}> <AppstoreOutlined style={{ marginRight: 6}}/> My Collection</Link>,
         },
         {
             key: "/auctions",
-            label: <Link to="/auctions" style={{ color: '#000', fontWeight: 500, display: 'flex', alignItems: 'center' }}> <ClockCircleOutlined style={{ marginRight: 6}}/> Auctions</Link>,
+            label: <Link to="/auctions" style={{ color: 'rgba(255, 255, 255, 0.9)', fontWeight: 500, display: 'flex', alignItems: 'center' }}> <ClockCircleOutlined style={{ marginRight: 6}}/> Auctions</Link>,
         },
-        {
-            key: "/transfer",
-            label: <Link to="/transfer" style={{ color: '#000', fontWeight: 500, display: 'flex', alignItems: 'center' }}> <SendOutlined style={{ marginRight: 6}}/> Transfer</Link>,
-        },
+        // {
+        //     key: "/transfer",
+        //     label: <Link to="/transfer" style={{ color: 'rgba(255, 255, 255, 0.9)', fontWeight: 500, display: 'flex', alignItems: 'center' }}> <SendOutlined style={{ marginRight: 6}}/> Transfer</Link>,
+        // },
         {
             key: "/search",
-            label: <Link to="/search" style={{ color: '#000', fontWeight: 500, display: 'flex', alignItems: 'center' }}> <SearchOutlined style={{ marginRight: 6}}/> Search</Link>,
+            label: <Link to="/search" style={{ color: 'rgba(255, 255, 255, 0.9)', fontWeight: 500, display: 'flex', alignItems: 'center' }}> <SearchOutlined style={{ marginRight: 6}}/> Search</Link>,
         },
-        {
-            key: "/chat",
-            label: <Link to="/chat" style={{ color: '#000', fontWeight: 500, display: 'flex', alignItems: 'center' }}> <WechatOutlined style={{ marginRight: 6}}/> Chat</Link>,
-        },
+        // {
+        //     key: "/chat",
+        //     label: <Link to="/chat" style={{ color: 'rgba(255, 255, 255, 0.9)', fontWeight: 500, display: 'flex', alignItems: 'center' }}> <WechatOutlined style={{ marginRight: 6}}/> Chat</Link>,
+        // },
         {
             key: "/mint-nft",
-            label: <span onClick={onMintNFTClick} style={{ color: '#000', fontWeight: 500, display: 'flex', alignItems: 'center' }}> <PlusOutlined style={{ marginRight: 6}}/> Mint NFT</span>,
+            label: <span onClick={onMintNFTClick} style={{ color: 'rgba(255, 255, 255, 0.9)', fontWeight: 500, display: 'flex', alignItems: 'center', cursor: 'pointer' }}> <PlusOutlined style={{ marginRight: 6}}/> Mint NFT</span>,
         },
     ];
 
@@ -132,35 +132,52 @@ const NavBar: React.FC<NavBarProps> = ({ onMintNFTClick }) => {
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
-                backgroundColor: "#fff",
+                background: "rgba(15, 23, 42, 0.8)",
+                backdropFilter: "blur(16px)",
+                WebkitBackdropFilter: "blur(16px)",
+                border: "1px solid rgba(139, 92, 246, 0.2)",
+                borderTop: "none",
+                borderLeft: "none",
+                borderRight: "none",
                 padding: "0 20px",
-                boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                boxShadow: "0 8px 32px rgba(139, 92, 246, 0.1)",
+                position: "fixed",
+                top: 0,
+                left: 0,
+                right: 0,
+                zIndex: 1000,
+                height: "64px",
             }}
         >
             {/* Logo and Navigation */}
             <div style={{ display: "flex", alignItems: "center" }}>
                 <img
-                    src="/Aptos_Primary_WHT.png"
-                    alt="Aptos Logo"
+                    src="/logo.png"
+                    alt="FanFi Logo"
                     style={{
-                        height: "30px", // Adjusted height
+                        height: "30px",
                         marginRight: 20,
-                        backgroundColor: "#29a3d5",
+                        backgroundColor: "transparent",
+                        filter: "brightness(1.2) drop-shadow(0 0 8px rgba(139, 92, 246, 0.3))",
                     }}
                 />
                 {/* Desktop Menu */}
                 <Menu
-                    theme="light"
+                    theme="dark"
                     mode="horizontal"
                     selectedKeys={[selectedKey]}
-                    style={{ backgroundColor: "transparent", border: "none" }}
+                    style={{ 
+                        border: "none",
+                        color: "rgba(255, 255, 255, 0.9)",
+                        background: 'transparent'
+                    }}
                     className="desktop-menu"
                 >
                     {menuItems.map((item) => (
                         <Menu.Item
                             key={item.key}
                             style={{
-                                color: "#000",
+                                color: "rgba(255, 255, 255, 0.9)",
                                 fontWeight: "500",
                             }}
                         >
@@ -173,7 +190,13 @@ const NavBar: React.FC<NavBarProps> = ({ onMintNFTClick }) => {
                     type="text"
                     icon={<MenuOutlined />}
                     onClick={toggleMenu}
-                    style={{ color: "#000", display: 'block', fontSize: "20px"}} // Always visible on mobile
+                    style={{ 
+                        color: "rgba(255, 255, 255, 0.9)", 
+                        display: 'block', 
+                        fontSize: "20px",
+                        border: "1px solid rgba(139, 92, 246, 0.3)",
+                        background: "rgba(139, 92, 246, 0.1)"
+                    }}
                      className="mobile-menu-button"
                   />
 
@@ -183,32 +206,38 @@ const NavBar: React.FC<NavBarProps> = ({ onMintNFTClick }) => {
                         className="mobile-menu-dropdown"
                         style={{
                             position: 'absolute',
-                             top: '60px',
+                             top: '64px',
                             left: 0,
-                            backgroundColor: '#fff',
-                            boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+                            background: "rgba(15, 23, 42, 0.95)",
+                            backdropFilter: "blur(20px)",
+                            WebkitBackdropFilter: "blur(20px)",
+                            boxShadow: '0 8px 32px rgba(139, 92, 246, 0.2)',
                             zIndex: 100,
                             padding: '10px',
-                            border: '1px solid #f0f0f0',
+                            border: '1px solid rgba(139, 92, 246, 0.2)',
+                            borderTop: 'none',
                             width: '100%',
                             textAlign: "center",
-                            // add the line below to fix mobile menu
-                            maxHeight: "calc(100vh - 60px)", // Ensure it doesn't cover the full screen
-                             overflowY: "auto", // add a scrollbar if the items overflow
+                            maxHeight: "calc(100vh - 64px)",
+                             overflowY: "auto",
                         }}
                     >
                         <Menu
-                            theme="light"
+                            theme="dark"
                             mode="vertical"
                             selectedKeys={[selectedKey]}
-                            style={{ backgroundColor: "transparent", border: "none" }}
+                            style={{ 
+                                background: "transparent", 
+                                border: "none",
+                                color: "rgba(255, 255, 255, 0.9)"
+                            }}
                             onClick={() => setIsMenuOpen(false)}
                         >
                             {menuItems.map((item) => (
                                 <Menu.Item
                                     key={item.key}
                                     style={{
-                                        color: "#000",
+                                        color: "rgba(255, 255, 255, 0.9)",
                                         fontWeight: "500",
                                     }}
                                 >
@@ -224,26 +253,34 @@ const NavBar: React.FC<NavBarProps> = ({ onMintNFTClick }) => {
                 {connected && account ? (
                     <Dropdown
                         overlay={
-                            <Menu>
-                                <Menu.Item key="address">
-                                    <Text style={{ fontWeight: "bold" }}>Address:</Text>
-                                    <Text copyable>{account.address}</Text>
+                            <Menu style={{
+                                background: "rgba(15, 23, 42, 0.95)",
+                                backdropFilter: "blur(20px)",
+                                WebkitBackdropFilter: "blur(20px)",
+                                border: "1px solid rgba(139, 92, 246, 0.3)",
+                                borderRadius: "8px",
+                                boxShadow: "0 8px 32px rgba(139, 92, 246, 0.2)"
+                            }}>
+                                <Menu.Item key="address" style={{ color: "rgba(255, 255, 255, 0.9)" }}>
+                                    <Text style={{ fontWeight: "bold", color: "#c084fc" }}>Address:</Text>
+                                    <Text copyable style={{ color: "rgba(255, 255, 255, 0.8)" }}>{account.address}</Text>
                                 </Menu.Item>
-                                <Menu.Item key="network">
-                                    <Text style={{ fontWeight: "bold" }}>Network:</Text>{" "}
-                                    {network ? network.name : "Unknown"}
+                                <Menu.Item key="network" style={{ color: "rgba(255, 255, 255, 0.9)" }}>
+                                    <Text style={{ fontWeight: "bold", color: "#c084fc" }}>Network:</Text>{" "}
+                                    <Text style={{ color: "rgba(255, 255, 255, 0.8)" }}>{network ? network.name : "Unknown"}</Text>
                                 </Menu.Item>
-                                <Menu.Item key="balance">
-                                    <Text style={{ fontWeight: "bold" }}>Balance:</Text>{" "}
-                                    {balance !== null ? `${balance} APT` : "Loading..."}
+                                <Menu.Item key="balance" style={{ color: "rgba(255, 255, 255, 0.9)" }}>
+                                    <Text style={{ fontWeight: "bold", color: "#c084fc" }}>Balance:</Text>{" "}
+                                    <Text style={{ color: "rgba(255, 255, 255, 0.8)" }}>{balance !== null ? `${balance} APT` : "Loading..."}</Text>
                                 </Menu.Item>
-                                <Menu.Divider />
+                                <Menu.Divider style={{ borderColor: "rgba(139, 92, 246, 0.3)" }} />
                                 <Menu.Item
                                     key="logout"
-                                    icon={<LogoutOutlined />}
+                                    icon={<LogoutOutlined style={{ color: "#f472b6" }} />}
                                     onClick={handleLogout}
+                                    style={{ color: "rgba(255, 255, 255, 0.9)" }}
                                 >
-                                    Log Out
+                                    <Text style={{ color: "rgba(255, 255, 255, 0.9)" }}>Log Out</Text>
                                 </Menu.Item>
                             </Menu>
                         }
@@ -252,16 +289,22 @@ const NavBar: React.FC<NavBarProps> = ({ onMintNFTClick }) => {
                         <Button
                             type="text"
                             style={{
-                                color: "#000",
+                                color: "rgba(255, 255, 255, 0.9)",
                                 display: "flex",
                                 alignItems: "center",
+                                background: "rgba(139, 92, 246, 0.2)",
+                                border: "1px solid rgba(139, 92, 246, 0.3)",
+                                borderRadius: "8px",
+                                backdropFilter: "blur(8px)",
+                                WebkitBackdropFilter: "blur(8px)",
                             }}
                             icon={
                                 <Avatar
                                     style={{
-                                        backgroundColor: "#1677ff",
+                                        background: "linear-gradient(135deg, #8b5cf6, #f472b6)",
                                         color: "white",
                                         marginRight: "5px",
+                                        boxShadow: "0 4px 16px rgba(139, 92, 246, 0.3)"
                                     }}
                                     size="small"
                                     icon={<UserOutlined />}
@@ -271,7 +314,7 @@ const NavBar: React.FC<NavBarProps> = ({ onMintNFTClick }) => {
                             <span
                                 style={{
                                     fontWeight: 500,
-                                    color: "#000",
+                                    color: "rgba(255, 255, 255, 0.9)",
                                 }}
                             >
                                 Connected
@@ -279,10 +322,15 @@ const NavBar: React.FC<NavBarProps> = ({ onMintNFTClick }) => {
                         </Button>
                     </Dropdown>
                 ) : (
-                    <WalletSelector />
+                    <div style={{
+                        filter: "invert(1) hue-rotate(240deg) saturate(1.5)",
+                    }}>
+                        <WalletSelector />
+                    </div>
                 )}
             </Space>
             <style>{`
+        
         .desktop-menu {
           display: none;
         }
@@ -290,12 +338,31 @@ const NavBar: React.FC<NavBarProps> = ({ onMintNFTClick }) => {
             display: flex;
               font-size: 20px;
         }
+              .ant-menu{
+              background: transparent; !important
+              }
           .ant-menu-item {
             padding: 0 16px !important;
           }
-           .ant-menu-horizontal > .ant-menu-item::after {
-            border-bottom: 2px solid #29a3d5;
+          
+          .ant-menu-dark .ant-menu-item:hover {
+            background: rgba(139, 92, 246, 0.2) !important;
+            color: #c084fc !important;
           }
+          
+          .ant-menu-dark .ant-menu-item-selected {
+            background: rgba(139, 92, 246, 0.3) !important;
+            color: #c084fc !important;
+          }
+          
+           .ant-menu-horizontal > .ant-menu-item::after {
+            border-bottom: 2px solid #f472b6 !important;
+          }
+          
+          .ant-menu-horizontal > .ant-menu-item-selected::after {
+            border-bottom: 2px solid #f472b6 !important;
+          }
+          
            .mobile-menu-dropdown .ant-menu-item {
             padding: 10px 16px !important;
             text-align: left;
@@ -307,6 +374,16 @@ const NavBar: React.FC<NavBarProps> = ({ onMintNFTClick }) => {
            .mobile-menu-dropdown .ant-menu-item span svg {
                margin-right: 6px;
              }
+             
+          .mobile-menu-dropdown .ant-menu-dark .ant-menu-item:hover {
+            background: rgba(139, 92, 246, 0.3) !important;
+            color: #c084fc !important;
+          }
+          
+          .mobile-menu-dropdown .ant-menu-dark .ant-menu-item-selected {
+            background: rgba(139, 92, 246, 0.4) !important;
+            color: #f472b6 !important;
+          }
 
           @media (min-width: 768px) {
         .desktop-menu {
