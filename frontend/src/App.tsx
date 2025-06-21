@@ -15,6 +15,7 @@ import NFTDetail from "./pages/NFTDetail";
 import Analytics from "./pages/Analytics";
 import ChatPage from "./pages/ChatPage";
 import SearchNFT from "./pages/SearchNFT";
+import AdminUserList from "./components/AdminUserList";
 import { client } from "./utils/aptoClientUtil";
 import ScanSuccess from "./pages/ScanSuccess";
 
@@ -57,133 +58,44 @@ function App() {
           {/* Navbar wrapper */}
           <NavBar onMintNFTClick={handleMintNFTClick} />
 
-          {/* Main content area */}
-          <div className="flex-1" style={{ backgroundColor: 'transparent' }}>
-            <div className="max-w-7xl mx-auto pt-12 px-4 sm:px-6 lg:px-8">
-              <Routes>
-                <Route path="/" element={<MarketView />} />
-                <Route path="/analytics" element={<Analytics />} />
-                <Route path="/my-nfts" element={<MyNFTs />} />
-                <Route path="/auctions" element={<AuctionPage />} />
-                <Route path="/transfer" element={<Transfer />} />
-                <Route path="/checkin" element={<ScanSuccess />} />
-                <Route path="/nft-detail/:tokenId" element={<NFTDetail />} />
-                <Route path="/chat" element={<ChatPage />} />
-                <Route path="/search" element={<SearchNFT />} />
-              </Routes>
-            </div>
-          </div>
+        <Routes>
+          <Route path="/" element={<MarketView  />} />
+          <Route path="/analytics" element={<Analytics />} />
+          <Route path="/my-nfts" element={<MyNFTs />} />
+          <Route path="/auctions" element={<AuctionPage />} />
+          <Route path="/transfer" element={<Transfer />} />
+          <Route path="/checkin" element={<ScanSuccess />} />
 
-          <div className="mx-auto mt-12 mb-5">
-<p className="text-lg text-center mb-3" style={{fontFamily:'Oxanium'}} >Powered By</p>
-<img
-                    src="/Aptos_Primary_WHT.png"
-                    alt="Aptos Logo"
-                    style={{
-                        height: "30px",
-                        backgroundColor: "transparent",
-                        filter: "brightness(1.2) drop-shadow(0 0 8px rgba(139, 92, 246, 0.3))",
-                    }}
-                />
-          </div>
+          <Route path="/nft-detail/:tokenId" element={<NFTDetail />} />
+          <Route path="/chat" element={<ChatPage />} />
+          <Route path="/search" element={<SearchNFT />} />
+          <Route path="/admin/users" element={<AdminUserList />} />
+        </Routes>
 
-          {/* Custom styled modal */}
-          <Modal
-            title={
-              <div className="text-white text-xl font-semibold flex items-center gap-2">
-                {/* <span style={{ color: '#C778DD' }}>✨</span> */}
-                Mint New NFT
-              </div>
-            }
-            open={isModalVisible}
-            onCancel={() => setIsModalVisible(false)}
-            footer={null}
-            className="mint-nft-modal"
-            styles={{
-              mask: { backgroundColor: 'rgba(20, 12, 31, 0.9)' },
-              content: { 
-                backgroundColor: '#240a4a',
-                border: '1px solid rgba(199, 120, 221, 0.2)',
-                borderRadius: '12px',
-                boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.6)'
-              }
-            }}
-          >
-            <div className="p-6">
-              <Form 
-                layout="vertical" 
-                onFinish={handleMintNFT}
-                className="space-y-6"
-              >
-                <Form.Item 
-                  label={<span className="text-white font-medium text-sm">NFT Name</span>} 
-                  name="name" 
-                  rules={[{ required: true, message: "Please enter a name!" }]}
-                >
-                  <Input 
-                    placeholder="Enter your NFT name..."
-                    className="rounded-lg px-4 py-3 transition-all duration-200"
-                    style={{
-                      backgroundColor: '#140C1F',
-                      borderColor: 'rgba(199, 120, 221, 0.3)',
-                      color: 'white',
-                      fontSize: '14px'
-                    }}
-                  />
-                </Form.Item>
-
-                <Form.Item 
-                  label={<span className="text-white font-medium text-sm">Description</span>} 
-                  name="description" 
-                  rules={[{ required: true, message: "Please enter a description!" }]}
-                >
-                  <Input.TextArea 
-                    placeholder="Describe your NFT..."
-                    rows={3}
-                    className="rounded-lg px-4 py-3 transition-all duration-200"
-                    style={{
-                      backgroundColor: '#140C1F',
-                      borderColor: 'rgba(199, 120, 221, 0.3)',
-                      color: 'white',
-                      resize: 'none',
-                      fontSize: '14px'
-                    }}
-                  />
-                </Form.Item>
-
-                <Form.Item 
-                  label={<span className="text-white font-medium text-sm">Image URI</span>} 
-                  name="uri" 
-                  rules={[{ required: true, message: "Please enter a URI!" }]}
-                >
-                  <Input 
-                    placeholder="https://example.com/image.jpg"
-                    className="rounded-lg px-4 py-3 transition-all duration-200"
-                    style={{
-                      backgroundColor: '#140C1F',
-                      borderColor: 'rgba(199, 120, 221, 0.3)',
-                      color: 'white',
-                      fontSize: '14px'
-                    }}
-                  />
-                </Form.Item>
-
-                <Form.Item 
-                  label={<span className="text-white font-medium text-sm">Category</span>} 
-                  name="rarity" 
-                  rules={[{ required: true, message: "Please select a category!" }]}
-                >
-                  <Select
-                    placeholder="Select a category..."
-                    className="mint-select"
-                    style={{ height: '48px' }}
-                  >
-                    <Select.Option value={1}>🎵 Concert</Select.Option>
-                    <Select.Option value={2}>⚽ Sports</Select.Option>
-                    <Select.Option value={3}>🎉 Celebration</Select.Option>
-                    <Select.Option value={4}>🌟 Others</Select.Option>
-                  </Select>
-                </Form.Item>
+        <Modal
+          title="Mint New NFT"
+          open={isModalVisible}
+          onCancel={() => setIsModalVisible(false)}
+          footer={null}
+        >
+          <Form layout="vertical" onFinish={handleMintNFT}>
+            <Form.Item label="Name" name="name" rules={[{ required: true, message: "Please enter a name!" }]}>
+              <Input />
+            </Form.Item>
+            <Form.Item label="Description" name="description" rules={[{ required: true, message: "Please enter a description!" }]}>
+              <Input />
+            </Form.Item>
+            <Form.Item label="URI" name="uri" rules={[{ required: true, message: "Please enter a URI!" }]}>
+              <Input />
+            </Form.Item>
+            <Form.Item label="Category" name="rarity" rules={[{ required: true, message: "Please select a category!" }]}>
+  <Select>
+    <Select.Option value={1}>Concert</Select.Option>
+    <Select.Option value={2}>Sports</Select.Option>
+    <Select.Option value={3}>Celebration</Select.Option>
+    <Select.Option value={4}>Others</Select.Option>
+  </Select>
+</Form.Item>
 
                 <Form.Item className="mb-0 pt-4">
                   <div className="flex gap-3">
@@ -213,7 +125,6 @@ function App() {
                   </div>
                 </Form.Item>
               </Form>
-            </div>
           </Modal>
         </Layout>
       </Router>

@@ -104,10 +104,10 @@ const NavBar: React.FC<NavBarProps> = ({ onMintNFTClick }) => {
             key: "/my-nfts",
             label: <Link to="/my-nfts" style={{ color: 'rgba(255, 255, 255, 0.9)', fontWeight: 500, display: 'flex', alignItems: 'center' }}> <AppstoreOutlined style={{ marginRight: 6}}/> My Collection</Link>,
         },
-        {
-            key: "/auctions",
-            label: <Link to="/auctions" style={{ color: 'rgba(255, 255, 255, 0.9)', fontWeight: 500, display: 'flex', alignItems: 'center' }}> <ClockCircleOutlined style={{ marginRight: 6}}/> Auctions</Link>,
-        },
+        // {
+        //     key: "/auctions",
+        //     label: <Link to="/auctions" style={{ color: 'rgba(255, 255, 255, 0.9)', fontWeight: 500, display: 'flex', alignItems: 'center' }}> <ClockCircleOutlined style={{ marginRight: 6}}/> Auctions</Link>,
+        // },
         // {
         //     key: "/transfer",
         //     label: <Link to="/transfer" style={{ color: 'rgba(255, 255, 255, 0.9)', fontWeight: 500, display: 'flex', alignItems: 'center' }}> <SendOutlined style={{ marginRight: 6}}/> Transfer</Link>,
@@ -123,6 +123,9 @@ const NavBar: React.FC<NavBarProps> = ({ onMintNFTClick }) => {
         {
             key: "/mint-nft",
             label: <span onClick={onMintNFTClick} style={{ color: 'rgba(255, 255, 255, 0.9)', fontWeight: 500, display: 'flex', alignItems: 'center', cursor: 'pointer' }}> <PlusOutlined style={{ marginRight: 6}}/> Mint NFT</span>,
+        },{
+            key: "/admin/users",
+            label: <Link to="/admin/users" style={{ color: 'rgba(255, 255, 255, 0.9)', fontWeight: 500, display: 'flex', alignItems: 'center' }}> <SearchOutlined style={{ marginRight: 6}}/>FanFi Score</Link>,
         },
     ];
 
