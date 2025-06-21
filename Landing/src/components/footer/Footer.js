@@ -42,21 +42,21 @@ const footerData = {
       name: "About",
       link: "/about",
     },
-    {
-      id: 2,
-      name: "How It Works",
-      link: "/how-it-works",
-    },
-    {
-      id: 3,
-      name: "Featured Events",
-      link: "/featured-events",
-    },
-    {
-      id: 4,
-      name: "Live Auctions",
-      link: "/live-auctions",
-    },
+    // {
+    //   id: 2,
+    //   name: "How It Works",
+    //   link: "/how-it-works",
+    // },
+    // {
+    //   id: 3,
+    //   name: "Featured Events",
+    //   link: "/featured-events",
+    // },
+    // {
+    //   id: 4,
+    //   name: "Live Auctions",
+    //   link: "/live-auctions",
+    // },
   ],
   supportLinks: [
     {
@@ -64,21 +64,21 @@ const footerData = {
       name: "Help & Support",
       link: "/help-support",
     },
-    {
-      id: 2,
-      name: "Event Details",
-      link: "/event-details",
-    },
-    {
-      id: 3,
-      name: "Fan Score",
-      link: "/fan-score",
-    },
-    {
-      id: 4,
-      name: "Contact",
-      link: "/contact",
-    },
+    // {
+    //   id: 2,
+    //   name: "Event Details",
+    //   link: "/event-details",
+    // },
+    // {
+    //   id: 3,
+    //   name: "Fan Score",
+    //   link: "/fan-score",
+    // },
+    // {
+    //   id: 4,
+    //   name: "Contact",
+    //   link: "/contact",
+    // },
   ],
 };
 export default function Footer() {

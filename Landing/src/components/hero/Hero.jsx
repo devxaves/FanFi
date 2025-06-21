@@ -301,9 +301,9 @@ export default function Hero() {
     <CButton size="small" btnTitle={"explore more"} />
     <OutlinedBtn size="small" btnTitle={"get started"} />
     {/* ✅ Scan Now Button */}
-              <Link to="/scan" style={{ textDecoration: "none" }}>
+              {/* <Link to="/scan" style={{ textDecoration: "none" }}>
                 <OutlinedBtn size="small" btnTitle={"Scan Now"} />
-              </Link>
+              </Link> */}
   </Stack>
 </Stack>
 
