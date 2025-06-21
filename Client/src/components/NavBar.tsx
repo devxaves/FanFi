@@ -123,10 +123,10 @@ const NavBar: React.FC<NavBarProps> = ({ onMintNFTClick }) => {
         // {
         //     key: "/mint-nft",
         //     label: <span onClick={onMintNFTClick} style={{ color: 'rgba(255, 255, 255, 0.9)', fontWeight: 500, display: 'flex', alignItems: 'center', cursor: 'pointer' }}> <PlusOutlined style={{ marginRight: 6}}/>Create Event</span>,
-        // },{
-        //     key: "/admin/users",
-        //     label: <Link to="/admin/users" style={{ color: 'rgba(255, 255, 255, 0.9)', fontWeight: 500, display: 'flex', alignItems: 'center' }}> <SearchOutlined style={{ marginRight: 6}}/>FanFi Score</Link>,
-        // },
+        {
+            key: "/admin/users",
+            label: <Link to="/admin/users" style={{ color: 'rgba(255, 255, 255, 0.9)', fontWeight: 500, display: 'flex', alignItems: 'center' }}> <SearchOutlined style={{ marginRight: 6}}/>FanFi Score</Link>,
+        },
     ];
 
     return (
@@ -258,7 +258,7 @@ const NavBar: React.FC<NavBarProps> = ({ onMintNFTClick }) => {
                     <Dropdown
                         overlay={
                             <Menu style={{
-                                background: "rgba(15, 23, 42, 0.95)",
+                                background: "rgba(15, 23, 42)",
                                 backdropFilter: "blur(20px)",
                                 WebkitBackdropFilter: "blur(20px)",
                                 border: "1px solid rgba(139, 92, 246, 0.3)",

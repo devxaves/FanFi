@@ -344,7 +344,7 @@ const MarketView: React.FC = () => {
                       onClick={() => handleBuyClick(nft)}
                       className="w-full h-10 sm:h-11 bg-transparent border-2 border-purple-500 text-purple-400 rounded-lg font-medium hover:bg-purple-500 hover:text-white transition-all duration-200 text-sm sm:text-base"
                     >
-                      Buy NFT
+                      Buy Ticket
                     </button>
                   )}
                 </div>

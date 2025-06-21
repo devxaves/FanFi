@@ -184,7 +184,7 @@ function App() {
           
           /* Modal styling */
           .ant-modal .ant-modal-content {
-            background:rgba(36, 10, 74, 0) !important;
+            background:rgba(36, 10, 74, 1) !important;
             border: 1px solid rgba(199, 120, 221, 0.2) !important;
           }
           

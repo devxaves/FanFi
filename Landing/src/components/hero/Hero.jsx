@@ -308,12 +308,12 @@ export default function Hero() {
   </a>
 
   <a 
-    href="https://fanfi-tickets.vercel.app/" 
+    href="https://fanfi-tickets.vercel.app/admin/users" 
     target="_blank" 
     rel="noopener noreferrer" 
     style={{ textDecoration: "none" }}
   >
-    <OutlinedBtn size="small" btnTitle={"get started"} />
+    <OutlinedBtn size="small" btnTitle={"Fan Score Leaderboard"} />
   </a>
 </Stack>
 

@@ -100,10 +100,10 @@ const NavBar: React.FC<NavBarProps> = ({ onMintNFTClick }) => {
         //     key: "/analytics",
         //     label: <Link to="/analytics" style={{ color: 'rgba(255, 255, 255, 0.9)', fontWeight: 500, display: 'flex', alignItems: 'center' }}> <BarChartOutlined style={{ marginRight: 6}}/> Analytics</Link>,
         // },
-        // {
-        //     key: "/my-tickets",
-        //     label: <Link to="/my-tickets" style={{ color: 'rgba(255, 255, 255, 0.9)', fontWeight: 500, display: 'flex', alignItems: 'center' }}> <AppstoreOutlined style={{ marginRight: 6}}/> My Collection</Link>,
-        // },
+        {
+            key: "/my-tickets",
+            label: <Link to="/my-tickets" style={{ color: 'rgba(255, 255, 255, 0.9)', fontWeight: 500, display: 'flex', alignItems: 'center' }}> <AppstoreOutlined style={{ marginRight: 6}}/> My Collection</Link>,
+        },
         // {
         //     key: "/auctions",
         //     label: <Link to="/auctions" style={{ color: 'rgba(255, 255, 255, 0.9)', fontWeight: 500, display: 'flex', alignItems: 'center' }}> <ClockCircleOutlined style={{ marginRight: 6}}/> Auctions</Link>,

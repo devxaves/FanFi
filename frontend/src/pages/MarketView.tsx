@@ -137,7 +137,7 @@ const MarketView: React.FC = () => {
   }
 
   return (
-    <div className="w-full px-4 sm:px-6 lg:px-8 py-6">
+    <div className="w-full px-4 bg-gradient-to-b from-pink-900 to-black sm:px-6 lg:px-8 py-6">
       {/* Header Section */}
       <div className="text-center mb-8">
         <Title 
