@@ -16,6 +16,9 @@ import Analytics from "./pages/Analytics";
 import ChatPage from "./pages/ChatPage";
 import SearchNFT from "./pages/SearchNFT";
 import { client } from "./utils/aptoClientUtil";
+
+import ScanSuccess from "./pages/ScanSuccess";
+
  
  
 function App() {
@@ -61,6 +64,8 @@ function App() {
           <Route path="/my-nfts" element={<MyNFTs />} />
           <Route path="/auctions" element={<AuctionPage />} />
           <Route path="/transfer" element={<Transfer />} />
+          <Route path="/checkin" element={<ScanSuccess />} />
+
           <Route path="/nft-detail/:tokenId" element={<NFTDetail />} />
           <Route path="/chat" element={<ChatPage />} />
           <Route path="/search" element={<SearchNFT />} />

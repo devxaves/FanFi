@@ -188,7 +188,7 @@ const MyNFTs: React.FC = () => {
                 </p>
                 <p>QR Code:</p>
                 <QRCodeCanvas
-                  value={`https://fan-fi.vercel.app/checkin?id=${nft.id}&owner=${nft.owner}`}
+                  value={`https://fanfi-tickets.vercel.app/checkin?id=${nft.id}&owner=${nft.owner}`}
                   size={128}
                   includeMargin
                 />
