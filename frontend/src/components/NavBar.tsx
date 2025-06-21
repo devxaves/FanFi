@@ -150,6 +150,7 @@ const NavBar: React.FC<NavBarProps> = ({ onMintNFTClick }) => {
                 right: 0,
                 zIndex: 1000,
                 height: "64px",
+                width: "100%",
             }}
         >
             {/* Logo and Navigation */}
@@ -174,7 +175,7 @@ const NavBar: React.FC<NavBarProps> = ({ onMintNFTClick }) => {
                         color: "rgba(255, 255, 255, 0.9)",
                         background: 'transparent'
                     }}
-                    className="desktop-menu"
+                    className="desktop-menu w-max"
                 >
                     {menuItems.map((item) => (
                         <Menu.Item
@@ -349,12 +350,12 @@ const NavBar: React.FC<NavBarProps> = ({ onMintNFTClick }) => {
           }
           
           .ant-menu-dark .ant-menu-item:hover {
-            background: rgba(139, 92, 246, 0.2) !important;
+            background: rgba(138, 92, 246, 0) !important;
             color: #c084fc !important;
           }
           
           .ant-menu-dark .ant-menu-item-selected {
-            background: rgba(139, 92, 246, 0.3) !important;
+            background: rgba(138, 92, 246, 0) !important;
             color: #c084fc !important;
           }
           
@@ -379,12 +380,12 @@ const NavBar: React.FC<NavBarProps> = ({ onMintNFTClick }) => {
              }
              
           .mobile-menu-dropdown .ant-menu-dark .ant-menu-item:hover {
-            background: rgba(139, 92, 246, 0.3) !important;
+            background: rgba(138, 92, 246, 0) !important;
             color: #c084fc !important;
           }
           
           .mobile-menu-dropdown .ant-menu-dark .ant-menu-item-selected {
-            background: rgba(139, 92, 246, 0.4) !important;
+            background: rgba(138, 92, 246, 0) !important;
             color: #f472b6 !important;
           }
 
