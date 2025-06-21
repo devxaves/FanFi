@@ -4,23 +4,23 @@ import jsQR from "jsqr";
 
 const FanFiScanner = () => {
   const [qrResult, setQrResult] = useState(null);
+  const [facingMode, setFacingMode] = useState("environment"); // "environment" = back camera
 
   const handleScan = (result) => {
-  if (result && result !== qrResult) {
-    setQrResult(result);
-    if (isValidHttpUrl(result)) {
-      window.open(result, "_blank"); // 👈 open in new tab
-    } else {
-      alert("Invalid QR code link!");
+    if (result && result !== qrResult) {
+      setQrResult(result);
+      if (isValidFanFiUrl(result)) {
+        window.open(result, "_blank");
+      } else {
+        alert("Scan FanFi Codes only.");
+      }
     }
-  }
-};
+  };
 
-
-  const isValidHttpUrl = (string) => {
+  const isValidFanFiUrl = (string) => {
     try {
       const url = new URL(string);
-      return url.protocol === "http:" || url.protocol === "https:";
+      return url.href.startsWith("https://fanfi-tickets.vercel.app/");
     } catch (_) {
       return false;
     }
@@ -49,6 +49,10 @@ const FanFiScanner = () => {
     reader.readAsDataURL(file);
   };
 
+  const toggleCamera = () => {
+    setFacingMode((prev) => (prev === "environment" ? "user" : "environment"));
+  };
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br  text-white px-4">
       <div className="text-center mb-8">
@@ -66,7 +70,7 @@ const FanFiScanner = () => {
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 to-blue-500 animate-scan z-20" />
 
         <QrReader
-          constraints={{ facingMode: "environment" }}
+          constraints={{ facingMode }}
           onResult={(result, error) => {
             if (!!result) {
               handleScan(result?.text);
@@ -78,23 +82,29 @@ const FanFiScanner = () => {
       </div>
 
       {/* Upload QR Fallback */}
-      <div className="mt-6 text-center">
-  <label className="inline-block px-6 py-2 bg-cyan-500 text-white font-medium text-sm leading-tight rounded shadow-md hover:bg-cyan-600 hover:shadow-lg focus:bg-cyan-600 focus:shadow-lg focus:outline-none focus:ring-0 transition duration-200 cursor-pointer">
-    Upload QR Code
-    <input
-      type="file"
-      accept="image/*"
-      onChange={(e) => {
-        const file = e.target.files?.[0];
-        if (file) {
-          handleImageUpload(file);
-        }
-      }}
-      className="hidden"
-    />
-  </label>
-</div>
+      <div className="mt-6 flex flex-col items-center space-y-4">
+        <label className="inline-block px-6 py-2 bg-cyan-500 text-white font-medium text-sm leading-tight rounded shadow-md hover:bg-cyan-600 hover:shadow-lg focus:bg-cyan-600 focus:shadow-lg focus:outline-none focus:ring-0 transition duration-200 cursor-pointer">
+          Upload QR Code
+          <input
+            type="file"
+            accept="image/*"
+            onChange={(e) => {
+              const file = e.target.files?.[0];
+              if (file) {
+                handleImageUpload(file);
+              }
+            }}
+            className="hidden"
+          />
+        </label>
 
+        <button
+          onClick={toggleCamera}
+          className="px-6 py-2 bg-purple-500 text-white font-medium text-sm leading-tight rounded shadow-md hover:bg-purple-600 hover:shadow-lg focus:bg-purple-600 focus:shadow-lg focus:outline-none focus:ring-0 transition duration-200"
+        >
+          Toggle Camera
+        </button>
+      </div>
     </div>
   );
 };
