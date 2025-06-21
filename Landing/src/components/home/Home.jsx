@@ -12,12 +12,24 @@ export default function Home() {
   return (
     <Stack gap={10}>
       <Hero />
-      <WalletSupport />
-      <HowItWorks />
-      <Collection />
-      <TendingNFts />
-      <AuctionNFTs />
-      <Influencers />
+      <div id="partners">
+        <WalletSupport />
+      </div>
+      <div id="workflow">
+        <HowItWorks />
+      </div>
+      <div id="featured">
+        <Collection />
+      </div>
+      <div id="live">
+        <TendingNFts />
+      </div>
+      <div id="sports">
+        <AuctionNFTs />
+      </div>
+      <div id="community">
+        <Influencers />
+      </div>
     </Stack>
   );
 }

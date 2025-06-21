@@ -12,11 +12,11 @@ import { CivicAuthProvider, UserButton } from "@civic/auth/react";
 const navbarData = {
   routes: [
     { id: 1, name: "Home", path: "/" },
-    { id: 2, name: "Featured Events", path: "partners" },
-    { id: 3, name: "Live Auctions", path: "trending-events" },
-    { id: 4, name: "Sports", path: "live-sports" },
-    { id: 5, name: "How FanFi Works", path: "how-it-works" },
-    { id: 6, name: "Community Stars", path: "community-stars" },
+    { id: 2, name: "Featured Events", path: "#featured" },
+    { id: 3, name: "Live Auctions", path: "#live" },
+    { id: 4, name: "Sports", path: "#sports" },
+    { id: 5, name: "How FanFi Works", path: "#workflow" },
+    { id: 6, name: "Community Stars", path: "#community" },
   ],
   logo: logo,
   logoTitle: "FANFi",
@@ -86,36 +86,36 @@ export default function Navbar() {
         >
           {routes.map((route, index) => {
             return (
-              <NavLink
-                to={route.path}
-                key={route.id}
-                style={({ isActive }) =>
-                  isActive
-                    ? {
-                      color: "#fff",
-                      // color: "#fff",
-                      fontSize: "16px",
-                      fontWeight: 400,
-                      borderBottom: "2px solid #AD1AAF",
-                    }
-                    : {
-                      color: "#fff",
-                      fontSize: "16px",
-                      fontWeight: 400,
-                    }
-                }
-              >
-                <Box
-                  component="span"
-                  sx={{
-                    "&:hover": {
-                      color: "#AD1AAF",
-                    },
-                  }}
+                <a
+                  href={route.path}
+                  key={route.id}
+                  // style={({ isActive }) =>
+                  //   isActive
+                  //     ? {
+                  //       color: "#fff",
+                  //       // color: "#fff",
+                  //       fontSize: "16px",
+                  //       fontWeight: 400,
+                  //       borderBottom: "2px solid #AD1AAF",
+                  //     }
+                  //     : {
+                  //       color: "#fff",
+                  //       fontSize: "16px",
+                  //       fontWeight: 400,
+                  //     }
+                  // }
                 >
-                  {route.name}
-                </Box>
-              </NavLink>
+                  <Box
+                    component="span"
+                    sx={{
+                      "&:hover": {
+                        color: "#AD1AAF",
+                      },
+                    }}
+                  >
+                    {route.name}
+                  </Box>
+                </a>
             );
           })}
         </Stack>

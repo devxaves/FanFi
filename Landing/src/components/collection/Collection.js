@@ -121,6 +121,7 @@ export default function Collection() {
         xs: 0,
       }}
       spacing={4}
+      
     >
       <CTypography
         fontSize={25}

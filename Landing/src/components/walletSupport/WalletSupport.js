@@ -33,7 +33,7 @@ const dataSources = [
 
 export default function WalletSupport() {
   return (
-    <Stack spacing={5} py={{ sm: 10, xs: 0 }}>
+    <Stack spacing={5} py={{ sm: 10, xs: 0 }} >
       <CTypography
         fontSize={25}
         fontWeight={400}
