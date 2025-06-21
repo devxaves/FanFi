@@ -5,7 +5,7 @@ const LeaderboardModal = ({ onClose }: { onClose: () => void }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/leaderboard")
+    fetch("https://fanfi.onrender.com/api/leaderboard")
       .then((res) => res.json())
       .then((data) => {
         setUsers(data.leaderboard || []);
