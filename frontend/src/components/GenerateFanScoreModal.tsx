@@ -72,7 +72,7 @@ User Profile:
 
   const saveFanScoreToMongo = async (userId: string, fanScore: number) => {
     try {
-      await fetch("http://localhost:5000/api/saveScore", {
+      await fetch("https://fanfi.onrender.com/api/saveScore", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userId, fanScore, username: user.name }),
