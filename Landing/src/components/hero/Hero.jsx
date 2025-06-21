@@ -297,14 +297,26 @@ export default function Hero() {
     blockchain for fair, secure, and immersive for every fan.
   </CTypography>
 
-  <Stack direction={"row"} spacing={2} py={4}>
+  <Stack direction={"row"} spacing={2} py={4}> 
+  <a 
+    href="https://fanfi-tickets.vercel.app/" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    style={{ textDecoration: "none" }}
+  >
     <CButton size="small" btnTitle={"explore more"} />
+  </a>
+
+  <a 
+    href="https://fanfi-tickets.vercel.app/" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    style={{ textDecoration: "none" }}
+  >
     <OutlinedBtn size="small" btnTitle={"get started"} />
-    {/* ✅ Scan Now Button */}
-              {/* <Link to="/scan" style={{ textDecoration: "none" }}>
-                <OutlinedBtn size="small" btnTitle={"Scan Now"} />
-              </Link> */}
-  </Stack>
+  </a>
+</Stack>
+
 </Stack>
 
         </Grid>

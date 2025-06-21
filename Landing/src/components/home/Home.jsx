@@ -22,14 +22,14 @@ export default function Home() {
           <div id="workflow">
             <HowItWorks />
           </div>
-          <div id="featured">
-            <Collection />
-          </div>
+          
 
       {/* ✅ Only show rest of the home sections when logged in */}
       {isLoggedIn && (
         <>
-          
+          <div id="featured">
+            <Collection />
+          </div>
           <div id="live">
             <TendingNFts />
           </div>
