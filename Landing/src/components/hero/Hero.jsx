@@ -4,6 +4,8 @@ import React from "react";
 import heroImage1 from "../../assets/images/hero1.png";
 import heroImage2 from "../../assets/images/hero2.png";
 import heroImage3 from "../../assets/images/hero3.png";
+import aptosLogo from "../../assets/images/aptos1.png";
+
 import Card from "../../utility/Card";
 import CButton from "../../utility/CButton";
 import CTypography from "../../utility/CTypography";
@@ -231,7 +233,7 @@ export default function Hero() {
           xs: 2,
         },
         py: {
-          lg: 8,
+          lg: 4,
           xs: 2,
         },
       }}
@@ -246,28 +248,60 @@ export default function Hero() {
       >
         <Grid item xs={12} lg={6}>
           <Stack spacing={4}>
-            <CTypography
-              fontSize="60px"
-              fontWeight={600}
-              lineHeight="80px"
-              // textTransform="uppercase"
-            >
-              SMART, FAN-FIRST TICKETING ON FANFi
-            </CTypography>
-            <CTypography
-              fontSize={20}
-              fontWeight={100}
-              fontFamily="Poppins"
-              // textTransform="capitalize"
-            >
-              FANFi is the next-gen, AI-powered ticketing platform on Aptos
-              blockchain for fair, secure, and immersive for every fan.
-            </CTypography>
-            <Stack direction={"row"} spacing={2} py={4}>
-              <CButton size="small" btnTitle={"explore more"} />
-              <OutlinedBtn size="small" btnTitle={"get started"} />
-            </Stack>
-          </Stack>
+  <CTypography
+    fontSize="60px"
+    fontWeight={600}
+    lineHeight="80px"
+    // textTransform="uppercase"
+  >
+    SMART, FAN-FIRST TICKETING ON FANFi
+  </CTypography>
+
+  {/* Powered by Aptos line */}
+  <Stack direction="row" spacing={1} alignItems="center">
+    <CTypography
+      fontSize={40}
+      fontWeight={400}
+      fontFamily="Poppins"
+      color="#FF00FF" // You can adjust the color
+    >
+      Powered by
+    </CTypography>
+    <Box
+      component="img"
+      src={aptosLogo}
+      alt="Aptos Logo"
+      sx={{
+        height: "42px",
+        width: "auto",
+      }}
+    />
+    {/* <CTypography
+      fontSize={18}
+      fontWeight={500}
+      fontFamily="Poppins"
+      color="#888"
+    >
+      Aptos
+    </CTypography> */}
+  </Stack>
+
+  <CTypography
+    fontSize={20}
+    fontWeight={100}
+    fontFamily="Poppins"
+    // textTransform="capitalize"
+  >
+    FANFi is the next-gen, AI-powered ticketing platform on Aptos
+    blockchain for fair, secure, and immersive for every fan.
+  </CTypography>
+
+  <Stack direction={"row"} spacing={2} py={4}>
+    <CButton size="small" btnTitle={"explore more"} />
+    <OutlinedBtn size="small" btnTitle={"get started"} />
+  </Stack>
+</Stack>
+
         </Grid>
         <Grid item xs={12} lg={6} alignItems="center" justifyContent="center">
           <Box
