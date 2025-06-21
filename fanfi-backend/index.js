@@ -18,7 +18,7 @@ const dbName = "FanFi";
 
 // API endpoint to save score
 app.post("/api/saveScore", async (req, res) => {
-  const { userId, fanScore, name } = req.body;
+  const { userId, fanScore, username } = req.body;
 
   try {
     await client.connect();
@@ -27,7 +27,7 @@ app.post("/api/saveScore", async (req, res) => {
 
     await collection.updateOne(
       { userId },
-      { $set: { fanScore, name, updatedAt: new Date() } },
+      { $set: { fanScore, username, updatedAt: new Date() } },
       { upsert: true }
     );
 
@@ -70,14 +70,17 @@ app.get("/api/leaderboard", async (req, res) => {
     const collection = db.collection("fanscores");
     // Get all users with a fanScore, sorted descending
     let leaderboard = await collection
-      .find({ fanScore: { $ne: null } }, { projection: { _id: 0, userId: 1, name: 1, fanScore: 1 } })
+      .find(
+        { fanScore: { $ne: null } },
+        { projection: { _id: 0, userId: 1, name: 1, fanScore: 1 } }
+      )
       .sort({ fanScore: -1 })
       .limit(20)
       .toArray();
     // Ensure name is never null or empty
-    leaderboard = leaderboard.map(user => ({
+    leaderboard = leaderboard.map((user) => ({
       ...user,
-      name: user.name && user.name.trim() ? user.name : user.userId
+      name: user.name && user.name.trim() ? user.name : user.userId,
     }));
     res.status(200).json({ leaderboard });
   } catch (error) {

@@ -24,7 +24,9 @@ const LeaderboardModal = ({ onClose }: { onClose: () => void }) => {
         >
           ×
         </button>
-        <h2 className="text-3xl font-bold mb-6 text-center text-[#c26cf5] tracking-wide">🏆 FanFi Leaderboard</h2>
+        <h2 className="text-3xl font-bold mb-6 text-center text-[#c26cf5] tracking-wide">
+          🏆 FanFi Leaderboard
+        </h2>
         {loading ? (
           <div className="text-center text-white">Loading...</div>
         ) : users.length === 0 ? (
@@ -34,23 +36,29 @@ const LeaderboardModal = ({ onClose }: { onClose: () => void }) => {
             {users.map((user, idx) => (
               <li
                 key={user.name}
-                className={`flex items-center justify-between px-5 py-3 rounded-xl shadow border border-[#a259f7] bg-[#25194a] ${idx === 0 ? "scale-105 border-2 border-yellow-400" : ""}`}
+                className={`flex items-center justify-between px-5 py-3 rounded-xl shadow border border-[#a259f7] bg-[#25194a] ${
+                  idx === 0 ? "scale-105 border-2 border-yellow-400" : ""
+                }`}
               >
                 <span className="flex items-center gap-2 text-white font-semibold text-lg">
                   {idx < 3 && (
-                    <span className={
-                      idx === 0
-                        ? "text-yellow-400 text-2xl"
-                        : idx === 1
-                        ? "text-gray-300 text-xl"
-                        : "text-orange-400 text-xl"
-                    }>
+                    <span
+                      className={
+                        idx === 0
+                          ? "text-yellow-400 text-2xl"
+                          : idx === 1
+                          ? "text-gray-300 text-xl"
+                          : "text-orange-400 text-xl"
+                      }
+                    >
                       {idx === 0 ? "🥇" : idx === 1 ? "🥈" : "🥉"}
                     </span>
                   )}
                   {user.name || user.userId}
                 </span>
-                <span className="text-[#c26cf5] font-bold text-xl">{user.fanScore}</span>
+                <span className="text-[#c26cf5] font-bold text-xl">
+                  {user.fanScore}
+                </span>
               </li>
             ))}
           </ol>

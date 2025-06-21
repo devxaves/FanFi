@@ -94,15 +94,15 @@ const NavBar: React.FC<NavBarProps> = ({ onMintNFTClick }) => {
     const menuItems = [
         {
             key: "/",
-            label: <Link to="/" style={{ color: 'rgba(255, 255, 255, 0.9)', fontWeight: 500, display: 'flex', alignItems: 'center' }}> <ShopOutlined style={{ marginRight: 6}}/> Marketplace</Link>,
+            label: <Link to="/" style={{ color: 'rgba(255, 255, 255, 0.9)', fontWeight: 500, display: 'flex', alignItems: 'center' }}> <ShopOutlined style={{ marginRight: 6}}/>Ticket-Place</Link>,
         },
         // {
         //     key: "/analytics",
         //     label: <Link to="/analytics" style={{ color: 'rgba(255, 255, 255, 0.9)', fontWeight: 500, display: 'flex', alignItems: 'center' }}> <BarChartOutlined style={{ marginRight: 6}}/> Analytics</Link>,
         // },
         {
-            key: "/my-nfts",
-            label: <Link to="/my-nfts" style={{ color: 'rgba(255, 255, 255, 0.9)', fontWeight: 500, display: 'flex', alignItems: 'center' }}> <AppstoreOutlined style={{ marginRight: 6}}/> My Collection</Link>,
+            key: "/my-tickets",
+            label: <Link to="/my-tickets" style={{ color: 'rgba(255, 255, 255, 0.9)', fontWeight: 500, display: 'flex', alignItems: 'center' }}> <AppstoreOutlined style={{ marginRight: 6}}/> My Collection</Link>,
         },
         // {
         //     key: "/auctions",
@@ -122,7 +122,7 @@ const NavBar: React.FC<NavBarProps> = ({ onMintNFTClick }) => {
         // },
         {
             key: "/mint-nft",
-            label: <span onClick={onMintNFTClick} style={{ color: 'rgba(255, 255, 255, 0.9)', fontWeight: 500, display: 'flex', alignItems: 'center', cursor: 'pointer' }}> <PlusOutlined style={{ marginRight: 6}}/> Mint NFT</span>,
+            label: <span onClick={onMintNFTClick} style={{ color: 'rgba(255, 255, 255, 0.9)', fontWeight: 500, display: 'flex', alignItems: 'center', cursor: 'pointer' }}> <PlusOutlined style={{ marginRight: 6}}/>Create Event</span>,
         },{
             key: "/admin/users",
             label: <Link to="/admin/users" style={{ color: 'rgba(255, 255, 255, 0.9)', fontWeight: 500, display: 'flex', alignItems: 'center' }}> <SearchOutlined style={{ marginRight: 6}}/>FanFi Score</Link>,

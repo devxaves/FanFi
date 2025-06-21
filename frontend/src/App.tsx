@@ -26,12 +26,19 @@ function App() {
   // Function to open the Mint NFT modal
   const handleMintNFTClick = () => setIsModalVisible(true);
 
-  const handleMintNFT = async (values: { name: string; description: string; uri: string; rarity: number }) => {
+  const handleMintNFT = async (values: {
+    name: string;
+    description: string;
+    uri: string;
+    rarity: number;
+  }) => {
     try {
       const nameVector = Array.from(new TextEncoder().encode(values.name));
-      const descriptionVector = Array.from(new TextEncoder().encode(values.description));
+      const descriptionVector = Array.from(
+        new TextEncoder().encode(values.description)
+      );
       const uriVector = Array.from(new TextEncoder().encode(values.uri));
-      console.log("rarity::", values.rarity)
+      console.log("rarity::", values.rarity);
       const entryFunctionPayload = {
         type: "entry_function_payload",
         function: `${MARKET_PLACE_ADDRESS}::${MARKET_PLACE_NAME}::mint_nft`,
@@ -39,7 +46,9 @@ function App() {
         arguments: [nameVector, descriptionVector, uriVector, values.rarity],
       };
 
-      const txnResponse = await (window as any).aptos.signAndSubmitTransaction(entryFunctionPayload);
+      const txnResponse = await (window as any).aptos.signAndSubmitTransaction(
+        entryFunctionPayload
+      );
       console.log("Transaction Response:", txnResponse);
       await client.waitForTransaction(txnResponse.hash);
 
@@ -52,86 +61,113 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen text-white" style={{ backgroundColor: 'transparent' }}>
+    <div
+      className="min-h-screen text-white"
+      style={{ backgroundColor: "transparent" }}
+    >
       <Router>
-        <Layout className="min-h-screen" style={{ backgroundColor: 'transparent' }}>
+        <Layout
+          className="min-h-screen"
+          style={{ backgroundColor: "transparent" }}
+        >
           {/* Navbar wrapper */}
           <NavBar onMintNFTClick={handleMintNFTClick} />
 
-        <Routes>
-          <Route path="/" element={<MarketView  />} />
-          <Route path="/analytics" element={<Analytics />} />
-          <Route path="/my-nfts" element={<MyNFTs />} />
-          <Route path="/auctions" element={<AuctionPage />} />
-          <Route path="/transfer" element={<Transfer />} />
-          <Route path="/checkin" element={<ScanSuccess />} />
+          <Routes>
+            <Route path="/" element={<MarketView />} />
+            <Route path="/analytics" element={<Analytics />} />
+            <Route path="/my-tickets" element={<MyNFTs />} />
+            <Route path="/auctions" element={<AuctionPage />} />
+            <Route path="/transfer" element={<Transfer />} />
+            <Route path="/checkin" element={<ScanSuccess />} />
 
-          <Route path="/nft-detail/:tokenId" element={<NFTDetail />} />
-          <Route path="/chat" element={<ChatPage />} />
-          <Route path="/search" element={<SearchNFT />} />
-          <Route path="/admin/users" element={<AdminUserList />} />
-        </Routes>
+            <Route path="/nft-detail/:tokenId" element={<NFTDetail />} />
+            <Route path="/chat" element={<ChatPage />} />
+            <Route path="/search" element={<SearchNFT />} />
+            <Route path="/admin/users" element={<AdminUserList />} />
+          </Routes>
 
-        <Modal
-          title="Mint New NFT"
-          open={isModalVisible}
-          onCancel={() => setIsModalVisible(false)}
-          footer={null}
-        >
-          <Form layout="vertical" onFinish={handleMintNFT}>
-            <Form.Item label="Name" name="name" rules={[{ required: true, message: "Please enter a name!" }]}>
-              <Input />
-            </Form.Item>
-            <Form.Item label="Description" name="description" rules={[{ required: true, message: "Please enter a description!" }]}>
-              <Input />
-            </Form.Item>
-            <Form.Item label="URI" name="uri" rules={[{ required: true, message: "Please enter a URI!" }]}>
-              <Input />
-            </Form.Item>
-            <Form.Item label="Category" name="rarity" rules={[{ required: true, message: "Please select a category!" }]}>
-  <Select>
-    <Select.Option value={1}>Concert</Select.Option>
-    <Select.Option value={2}>Sports</Select.Option>
-    <Select.Option value={3}>Celebration</Select.Option>
-    <Select.Option value={4}>Others</Select.Option>
-  </Select>
-</Form.Item>
+          <Modal
+            title="Mint New NFT"
+            open={isModalVisible}
+            onCancel={() => setIsModalVisible(false)}
+            footer={null}
+          >
+            <Form layout="vertical" onFinish={handleMintNFT}>
+              <Form.Item
+                label="Name"
+                name="name"
+                rules={[{ required: true, message: "Please enter a name!" }]}
+              >
+                <Input />
+              </Form.Item>
+              <Form.Item
+                label="Description"
+                name="description"
+                rules={[
+                  { required: true, message: "Please enter a description!" },
+                ]}
+              >
+                <Input />
+              </Form.Item>
+              <Form.Item
+                label="URI"
+                name="uri"
+                rules={[{ required: true, message: "Please enter a URI!" }]}
+              >
+                <Input />
+              </Form.Item>
+              <Form.Item
+                label="Category"
+                name="rarity"
+                rules={[
+                  { required: true, message: "Please select a category!" },
+                ]}
+              >
+                <Select>
+                  <Select.Option value={1}>Concert</Select.Option>
+                  <Select.Option value={2}>Sports</Select.Option>
+                  <Select.Option value={3}>Celebration</Select.Option>
+                  <Select.Option value={4}>Others</Select.Option>
+                </Select>
+              </Form.Item>
 
-                <Form.Item className="mb-0 pt-4">
-                  <div className="flex gap-3">
-                    <Button 
-                      onClick={() => setIsModalVisible(false)}
-                      className="flex-1 h-12 rounded-lg font-medium transition-all duration-200"
-                      style={{
-                        backgroundColor: 'transparent',
-                        borderColor: 'rgba(199, 120, 221, 0.3)',
-                        color: 'white'
-                      }}
-                    >
-                      Cancel
-                    </Button>
-                    <Button 
-                      type="primary" 
-                      htmlType="submit"
-                      className="flex-1 h-12 rounded-lg font-semibold transition-all duration-200"
-                      style={{
-                        backgroundColor: '#C778DD',
-                        borderColor: '#C778DD',
-                        color: '#140C1F'
-                      }}
-                    >
-                      Mint NFT
-                    </Button>
-                  </div>
-                </Form.Item>
-              </Form>
+              <Form.Item className="mb-0 pt-4">
+                <div className="flex gap-3">
+                  <Button
+                    onClick={() => setIsModalVisible(false)}
+                    className="flex-1 h-12 rounded-lg font-medium transition-all duration-200"
+                    style={{
+                      backgroundColor: "transparent",
+                      borderColor: "rgba(199, 120, 221, 0.3)",
+                      color: "white",
+                    }}
+                  >
+                    Cancel
+                  </Button>
+                  <Button
+                    type="primary"
+                    htmlType="submit"
+                    className="flex-1 h-12 rounded-lg font-semibold transition-all duration-200"
+                    style={{
+                      backgroundColor: "#C778DD",
+                      borderColor: "#C778DD",
+                      color: "#140C1F",
+                    }}
+                  >
+                    Mint NFT
+                  </Button>
+                </div>
+              </Form.Item>
+            </Form>
           </Modal>
         </Layout>
       </Router>
 
       {/* Global styles for consistent theming */}
-      <style dangerouslySetInnerHTML={{
-        __html: `
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
           /* Global text styling */
           * {
             color: white !important;
@@ -432,8 +468,9 @@ function App() {
           .ant-drawer-close:hover {
             color: #C778DD !important;
           }
-        `
-      }} />
+        `,
+        }}
+      />
     </div>
   );
 }

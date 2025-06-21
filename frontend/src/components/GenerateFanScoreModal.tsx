@@ -75,7 +75,7 @@ User Profile:
       await fetch("http://localhost:5000/api/saveScore", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ userId, fanScore, name: user.name }),
+        body: JSON.stringify({ userId, fanScore, username: user.name }),
       });
       // No alert here, UX improvement
     } catch (error) {
