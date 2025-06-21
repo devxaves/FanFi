@@ -1,12 +1,12 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import QRScanner from './components/QRScanner';
 import './index.css'
 import App from './App.jsx'
-import QRScanner from './QRScanner.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     {/* <App /> */}
-    <QRScanner/>
+     <QRScanner />
   </StrictMode>,
 )
